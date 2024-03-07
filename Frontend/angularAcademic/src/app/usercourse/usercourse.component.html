@@ -1,0 +1,51 @@
+<!-- <section class="section section-shaped" style="padding-top: 2rem; padding-bottom: 3rem;">
+    <div class="shape shape-style-1 bg-gradient-default"></div>
+  </section>
+  
+  <div class="container course_container" style="margin-top: 4rem;">
+    <div class="course_digit d-flex justify-content-center flex-wrap">
+    
+      <div class="row" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+        <div class="card" *ngFor="let course of userCourses" style="width: 20rem; margin-bottom: 20px;">
+          <img class="card-img-top" src="https://cdn.pixabay.com/photo/2020/09/07/00/39/virtual-learning-5550480_1280.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ course.courseTitle }}</h5>
+            <p class="card-text">{{ course.courseDescription }}</p>
+          
+            <a [routerLink]="['/start-learning']" class="btn">Start Learning</a>
+          </div>
+        </div>
+      
+      </div>
+      
+    </div>
+  </div>
+   -->
+
+   <section class="section section-shaped" style="padding-top: 2rem; padding-bottom: 3rem;">
+    <div class="shape shape-style-1 bg-gradient-default"></div>
+  </section>
+  
+  <div class="container course_container" style="margin-top: 4rem;">
+    <div class="course_digit d-flex justify-content-center flex-wrap">
+      <div *ngIf="userCourses?.length == 0" class="d-flex justify-content-center">
+        <!-- Show default image when no data is available -->
+        <img src="https://img.freepik.com/premium-vector/no-data-concept-illustration_86047-488.jpg" alt="No Data Image" style="
+          
+          width: 50%;
+      ">
+   
+      </div>
+      <div class="row" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+        <div class="card" *ngFor="let course of userCourses" style="width: 20rem; margin-bottom: 20px;">
+          <img class="card-img-top" [src]="course.courseImage" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ course.courseTitle.length > 22 ? (course.courseTitle | slice:0:22) + '...' :course.courseTitle }}</h5>
+              <p class="card-text">{{ course.courseDescription.length > 120 ? (course.courseDescription | slice:0:120) + '...' : course.courseDescription }}</p>
+            <a [routerLink]="['/start-learning']" class="btn">Start Learning</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

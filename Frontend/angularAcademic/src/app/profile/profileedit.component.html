@@ -1,0 +1,375 @@
+<main>
+  <section class="section section-shaped section-lg">
+    <div class="shape shape-style-1 bg-gradient-default">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="container pt-lg-md">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-header bg-white pt-2">
+              <div class="text-muted text-center ">
+                <h2>Edit Profile</h2>
+              </div>
+            </div>
+            <div class="card-body px-lg-5 py-lg-5">
+
+              <form role="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus === true}">
+                      <div class="input-group input-group-alternative mb-3">
+
+                        <input class="form-control" placeholder="First Name" value={{profileForm?.value.firstName}} type="text" formControlName="firstName"
+                          (focus)="focus=true" (blur)="focus=false">
+                      </div>
+                      <div
+                        *ngIf="profileForm.get('firstName').hasError('required') && profileForm.get('firstName').touched"
+                        class="text-danger">
+                        First Name is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus2 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <input class="form-control" placeholder="Last Name" type="text" formControlName="lastName"
+                          (focus)="focus2=true" (blur)="focus2=false">
+                      </div>
+                      <div
+                        *ngIf="profileForm.get('lastName').hasError('required') && profileForm.get('lastName').touched"
+                        class="text-danger">
+                        Last Name is required.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-6">
+                      <div class="form-group" [ngClass]="{'focused': focus1 === true}">
+                        <div class="input-group input-group-alternative mb-3">
+                          <input class="form-control" placeholder="firstName" type="text" formControlName="firstName" (focus)="focus1=true" (blur)="focus1=false">
+                        </div>
+                        <div *ngIf="profileForm.get('firstName').hasError('required') && profileForm.get('firstName').touched" class="text-danger">
+                          Last Name is required.
+                        </div>
+                      </div>
+                    </div> -->
+
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus3 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <input class="form-control" placeholder="Email" type="email" formControlName="email"
+                          (focus)="focus3=true" (blur)="focus3=false" readonly>
+                      </div>
+                      <div *ngIf="profileForm.get('email').hasError('required') && profileForm.get('email').touched"
+                        class="text-danger">
+                        Email is required.
+                      </div>
+                      <div *ngIf="profileForm.get('email').hasError('email') && profileForm.get('email').touched"
+                        class="text-danger">
+                        Please enter a valid email address.
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus4 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <input class="form-control" placeholder="Password" type="password" formControlName="password"
+                          (focus)="focus4=true" (blur)="focus4=false" readonly>
+                      </div>
+                      <div
+                        *ngIf="profileForm.get('password').hasError('required') && profileForm.get('password').touched"
+                        class="text-danger">
+                        Password is required.
+                      </div>
+
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus5 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <input class="form-control" placeholder="Phone Number" type="text" formControlName="phoneNumber"
+                          (focus)="focus5=true" (blur)="focus5=false">
+                      </div>
+                      <div
+                        *ngIf="profileForm.get('phoneNumber').hasError('required') && profileForm.get('phoneNumber').touched"
+                        class="text-danger">
+                        PhoneNumber is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus6 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <input class="form-control" placeholder="Address Lane 1" type="text"
+                          formControlName="addressLane1" (focus)="focus6=true" (blur)="focus6=false">
+                      </div>
+                      <div
+                        *ngIf="profileForm.get('addressLane1').hasError('required') && profileForm.get('addressLane1').touched"
+                        class="text-danger">
+                        AddressLane1 is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus7 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <input class="form-control" placeholder="Address Lane 2" type="text"
+                          formControlName="addressLane2" (focus)="focus7=true" (blur)="focus7=false">
+                      </div>
+                      <!-- <div
+                        *ngIf="profileForm.get('addressLane2').hasError('required') && profileForm.get('addressLane2').touched"
+                        class="text-danger">
+                        AddressLane2 is required.
+                      </div> -->
+                    </div>
+                  </div>
+
+                  <!-- Country Dropdown -->
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus8 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control" formControlName="country" (focus)="focus8=true"
+                          (blur)="focus8=false" (change)="onCountryChange()">
+                          <option value="" disabled>Select Country</option>
+                          <option *ngFor="let country of countries" [value]="country.isoCode">{{ country.name }}
+                          </option>
+                        </select>
+                      </div>
+                      <div *ngIf="profileForm.get('country').hasError('required') && profileForm.get('country').touched"
+                        class="text-danger">
+                        Country is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- State Dropdown -->
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus9 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control" formControlName="state" (focus)="focus9=true" (blur)="focus9=false"
+                          (change)="onStateChange()">
+                          <option value="" disabled>Select State</option>
+                          <option *ngFor="let state of states" [value]="state.isoCode">{{ state.name }}</option>
+                        </select>
+                      </div>
+                      <div *ngIf="profileForm.get('state').hasError('required') && profileForm.get('state').touched"
+                        class="text-danger">
+                        State is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- City Dropdown -->
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus10 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control" formControlName="city" (focus)="focus10=true"
+                          (blur)="focus10=false">
+                          <option value="" disabled>Select City</option>
+                          <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
+                        </select>
+                      </div>
+                      <div *ngIf="profileForm.get('city').hasError('required') && profileForm.get('city').touched"
+                        class="text-danger">
+                        City is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus11 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <input class="form-control" placeholder="Zip Code" type="text" formControlName="zipCode"
+                          (focus)="focus11=true" (blur)="focus11=false">
+                      </div>
+                      <div *ngIf="profileForm.get('zipCode').hasError('required') && profileForm.get('zipCode').touched"
+                        class="text-danger">
+                        ZipCode is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- <div class="col-md-6">
+                      <div class="form-group" [ngClass]="{'focused': focus12 === true}">
+                        <div class="input-group input-group-alternative mb-3">
+                          <select class="form-control" formControlName="interestedInInternship" (focus)="focus12=true" (blur)="focus12=false">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div> -->
+
+                    <div class="col-md-6">
+                      <div class="form-group" [ngClass]="{'focused': focus13 === true}">
+                        <div class="input-group input-group-alternative mb-3">
+                          <select class="form-control" formControlName="universityName" (focus)="focus13=true"
+                            (blur)="focus13=false">
+                            <option value="" disabled>Select University</option>
+                            <option *ngFor="let university of universities" [value]="university.university_name">
+                              {{ university.university_name }}
+                            </option>
+                     
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                        <div
+                          *ngIf="profileForm.get('universityName').hasError('required') && profileForm.get('universityName').touched"
+                          class="text-danger">
+                          University is required.
+                        </div>
+                      </div>
+                    </div>
+
+                  <div class="col-md-6" *ngIf="profileForm.get('universityName').value === 'other'">
+                    <div class="form-group" [ngClass]="{'focused': focus14 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <input class="form-control" placeholder="Other University Name" type="text"
+                          formControlName="otherUniversityName" (focus)="focus14=true" (blur)="focus14=false">
+                      </div>
+                      <div
+                        *ngIf="profileForm.get('otherUniversityName').hasError('required') && profileForm.get('otherUniversityName').touched"
+                        class="text-danger">
+                        Other University is required.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus15 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control" formControlName="currentProgram" (focus)="focus15=true"
+                          (blur)="focus15=false">
+                          <option value="" disabled>Select CurrentProgram</option>
+                          <option value="masters">Master’s</option>
+                          <option value="bachelors">Bachelors</option>
+                          <option value="doctorate">Doctorate</option>
+                          <option value="none">None</option>
+                        </select>
+
+                      </div>
+                      <div
+                        *ngIf="profileForm.get('currentProgram').hasError('required') && profileForm.get('currentProgram').touched"
+                        class="text-danger">
+                        CurrentProgram is required.
+                      </div>
+                    </div>
+                  </div>
+                 
+
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus16 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <input class="form-control" placeholder="Graduating Year" type="date"
+                          formControlName="graduatingYear" (focus)="focus16=true" (blur)="focus16=false">
+                      </div>
+                      <div
+                        *ngIf="profileForm.get('graduatingYear').hasError('required') && profileForm.get('graduatingYear').touched"
+                        class="text-danger">
+                        GraduatingYear is required.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-{{ profileForm.get('universityName').value === 'other' ? '6' : '12' }}">
+                    <div class="form-group" [ngClass]="{'focused': focus11 === true}">
+                      <div class="input-group input-group-alternative mb-3">
+                        <input class="form-control" placeholder="SchoolEmail" type="email" formControlName="schoolEmail"
+                          (focus)="focus11=true" (blur)="focus11=false">
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus19 === true}">
+                      <div class="input-group  mb-3" style="flex-direction: column;">
+                        <label for="interestedInInternship">Interested in Internship: </label>
+                        <div style="display: flex;
+                        gap: 1rem;">
+
+                          <input id="workAuthorization" type="radio" value="true"
+                            formControlName="interestedInInternship" (focus)="focus18=true" (blur)="focus18=false">
+                          <label for="workAuthorization">Yes</label>
+                        </div>
+                        <div style="display: flex;
+                          gap: 1rem;">
+
+
+
+                          <input id="otherAuthorization" type="radio" value="false"
+                            formControlName="interestedInInternship" (focus)="focus18=true" (blur)="focus18=false">
+                          <label for="otherAuthorization">No</label>
+                        </div>
+
+                        <div
+                          *ngIf="profileForm.get('interestedInInternship').hasError('required') && profileForm.get('interestedInInternship').touched"
+                          class="text-danger">
+                          InterestedInInternship is required.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group" [ngClass]="{'focused': focus17 === true}">
+                      <div class="input-group  mb-3" style="flex-direction: column;">
+                        <label for="interestedInInternship">Already Graduated :</label>
+                        <div style="display: flex;
+                        gap: 1rem;">
+
+
+
+                          <input id="alreadyGraduatedYes" type="radio" value="true" formControlName="alreadyGraduated"
+                            (focus)="focus17=true" (blur)="focus17=false">
+                          <label for="alreadyGraduatedYes"> Yes</label>
+                        </div>
+                        <div style="display: flex;
+                        gap: 1rem;">
+  
+
+
+                          <input id="alreadyGraduatedNo" type="radio" value="false" formControlName="alreadyGraduated"
+                            (focus)="focus17=true" (blur)="focus17=false">
+                          <label for="alreadyGraduatedNo">No</label>
+                        </div>
+                      </div>
+                      <div
+                        *ngIf="profileForm.get('alreadyGraduated').hasError('required') && profileForm.get('alreadyGraduated').touched"
+                        class="text-danger">
+                        AlreadyGraduated is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary mt-4">Update account</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

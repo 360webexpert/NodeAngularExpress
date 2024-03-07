@@ -1,0 +1,154 @@
+.modal-body {
+    display: flex;
+    padding: 10px; /* Adjust the value as needed */
+    justify-content: space-between;
+  }
+.userdeatils{
+    padding: 10px !important; 
+}
+
+.card.my_order{
+   
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-bottom: 2px solid #172b4d;
+}
+
+
+.sidePanelCourse{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    padding: 20px;  height: 95%;
+    background-color: rgb(247, 247, 247);
+    
+}
+
+
+.btn-primaryviewdetails{
+    width: 28%;
+    font-size: 12px;
+    background-color: #172b4d;
+    padding: 12px;
+    border: 0px;
+    border-radius: 6px;
+    color: white;
+}
+
+/* width: 34%;
+    font-size: 10px; */
+
+.my_orderimg{
+    width: 100%;
+    padding: 28px;
+    height: 100%;
+   
+    background-color: white;
+}
+.products-heading{
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid white;
+    --tw-bg-opacity: 1;
+    background-color: rgb(243 244 246 / var(--tw-bg-opacity)); 
+}
+
+
+.container{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+
+.my_order_title{
+    font-size: 20px;
+}
+
+.my_order_price{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+.stepper-wrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+  
+  .stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: -50%;
+    z-index: 2;
+  }
+  
+  .stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 2;
+  }
+  
+  .stepper-item .step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-bottom: 6px;
+  }
+  
+  .stepper-item.active {
+    font-weight: bold;
+  }
+  
+  .stepper-item.completed .step-counter {
+    background-color: #4bb543;
+  }
+  
+  .stepper-item.completed::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #4bb543;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 3;
+  }
+  
+  .stepper-item:first-child::before {
+    content: none;
+  }
+  .stepper-item:last-child::after {
+    content: none;
+  }
+
+.row.course_container{
+    border-bottom: 1px solid grey;
+}
+  /* border-bottom: 1px solid grey; */

@@ -1,0 +1,200 @@
+<section class="section section-shaped" style="    padding-top: 2rem;
+padding-bottom: 3rem;">
+  <div class="shape shape-style-1 bg-gradient-default">
+
+  </div>
+</section>
+
+
+
+<!--  -->
+
+
+<!-- <div class="container course_container" >
+  <div class="row">
+    
+
+
+
+  </div>
+</div>  -->
+
+<!-- <div class="col-md-5" style="padding-top: 49px;">
+      <div *ngIf="selectedCourse" id="sidePanel" class="sidePanelCourse" style="padding-bottom: 2rem;">
+       
+        <div class="details_course">
+          <div>
+            Course Name: <p>{{ selectedCourse.courseTitle }}</p>
+          </div>
+          <div>
+            Course Price: <p style="color:#172b4d">${{ selectedCourse.coursePrice }}</p>
+          </div>
+          Course Description: <p class="card-text">{{ selectedCourse.courseDescription.length > 150 ? (selectedCourse.courseDescription | slice:0:150) + '...' : selectedCourse.courseDescription }}</p>
+
+          <div>
+            Purchased  Date:  <p>{{ selectedCourse.createdAt | date:'ddMMM yyyy' }}</p>
+           
+          </div>
+          
+          
+        </div>
+      </div>
+    </div> -->
+<!-- <div class="col-md-7">
+      <h3>Course details</h3>
+      <div class="card my_order" *ngFor="let course of userCourses; let i = index" style="margin-bottom: 20px;">
+        <div style="display: flex; flex-direction: row;">
+          <img class="card-img-top"
+            [src]="course.courseImage" alt="Card image cap"
+            style="width: 30%; padding: 16px;">
+          <div class="card-body">
+            <div class="row">
+
+
+              <div class="col-md-8">
+                <h5 class="card-title" style="font-size: 16px;">{{ course.courseTitle }}</h5>
+
+              </div>
+              <div class="col-md-4">
+                <p class="card-text" style="color:#172b4d; font: weight 600px;">${{ course.coursePrice }}</p>
+              </div>
+            </div>
+            <button type="button" class="btn-primaryviewdetails" (click)="openModal(course.courseId)">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+
+
+
+<!-- <div class="modal fade" *ngIf="selectedCourse" [id]="'exampleModalLong' + selectedCourse.id.toString()" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="exampleModalLongTitle">Order Details</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <p>{{ selectedCourse.courseTitle }}</p>
+        </div>
+        <div>
+          <p>${{ selectedCourse.coursePrice }}</p>
+        </div>
+      </div>
+      <div class="userdeatils"> 
+        <p>User Name - {{ selectedCourse.courseTitle }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">OK</button>
+
+
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="container" *ngFor="let course of userCourses; let i = index">
+  <section class="products-heading">
+    <div class="arh asd cez cux cyn czw dcw">
+      <div>
+        <div class="row course_container">
+          <div class="col-md-2 my_orderimg">
+            <img class="card-img-top" [src]="course.courseImage" alt="Card image cap"
+              style="width: 100%;  height: 100%;">
+          </div>
+          <div class="col-md-5">
+            <div>
+              <h3 class="my_order_title">{{ course.courseTitle }}</h3>
+              <p class="my_order_price">${{ course.coursePrice }}</p>
+              <p class="lf avz axq">{{ course.courseDescription?.length > 150 ? (course.courseDescription | slice:0:150)
+                + '...' : course.courseDescription }}</p>
+              <p class="my_order_price">{{ course.createdAt | date:'ddMMM yyyy' }}</p>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div>
+              <h3 class="my_order_title">Payment Details</h3>
+              <p class="lf avz axq">
+                <span>Address:</span> {{ courstransaction.Zip }} {{ courstransaction.city }}, {{ courstransaction.country }}
+              </p>
+              <p class="lf avz axq">
+                <span>Amount:</span>{{ courstransaction.amount }}
+              </p>
+              <!-- Add additional details as needed -->
+              <p class="lf avz axq">
+                <span>Payment Method:</span> Credit Card
+              </p>
+              <p class="lf avz axq">
+                <span>Payment Id:</span> {{ courstransaction.id }}
+              </p>
+              <p class="lf avz axq">
+                <span>Card Number:</span> **** **** **** 1234
+              </p>
+              <p class="lf avz axq">
+                <span>Expiry Date:</span> 12/24
+              </p>
+              <p class="lf avz axq">
+                <span>Currency:</span>{{ courstransaction.currency }}
+              </p>
+              <p class="lf avz axq">
+                <span>Transaction:</span>{{ courstransaction.token }}
+              </p>
+             
+              <!-- Add more details as needed -->
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+      <!-- <div class=" grid-column-end: 3;">
+        <div>
+          <img class="card-img-top"
+            src="https://cdn.pixabay.com/photo/2020/09/07/00/39/virtual-learning-5550480_1280.jpg" alt="Card image cap"
+            style="width: 20%; padding: 16px; height: 20%;">
+        </div>
+        <div class="lk bwi bws">
+          <h3>Course courseTitle</h3>
+          <p class="lb avz awd axu">$35.00</p>
+          <p class="lf avz axq">This durable and portable insulated tumbler will keep your beverage at the perfect temperature during your next adventure.</p>
+        </div>
+
+      </div> -->
+
+    </div>
+
+    <div style="padding-top: 2rem;">
+      <div class="stepper-wrapper">
+        <div class="stepper-item completed">
+          <div class="step-counter">✔️</div>
+          <div class="step-name">Order placed</div>
+        </div>
+        <div class="stepper-item completed">
+          <div class="step-counter">✔️</div>
+          <div class="step-name">Processing</div>
+        </div>
+
+        <div class="stepper-item completed">
+          <div class="step-counter">✔️</div>
+          <div class="step-name">Purchased</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+</div>

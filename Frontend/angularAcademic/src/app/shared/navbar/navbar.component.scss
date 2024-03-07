@@ -1,0 +1,24 @@
+.transparent-navbar {
+    background-color: transparent !important;
+}
+
+// Colored navbar style
+.colored-navbar {
+    background-color: #172b4d !important; // Replace 'yourColor' with the desired color
+}
+
+// Your other SCSS styles
+// ...
+
+// Navbar styles
+#navbar-main {
+    &.transparent-navbar {
+        @extend .transparent-navbar;
+    }
+
+    &.colored-navbar {
+        @extend .colored-navbar;
+    }
+
+    // Add any additional navbar-specific styles here
+}

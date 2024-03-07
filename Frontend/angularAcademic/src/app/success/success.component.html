@@ -1,0 +1,114 @@
+<section class="section section-shaped" style="padding-top: 2rem;
+padding-bottom: 3rem;">
+    <div class="shape shape-style-1 bg-gradient-default">
+    </div>
+</section>
+<div class="px-4 py-5">
+
+    <h1 class="text-center">Success</h1>
+    <p style="text-align: center;">Thanku You <br />Your order has been placed successfully!!</p>
+
+</div>
+
+
+
+<div class="modal-dialog" style="padding-bottom: 30px;">
+    <div class="modal-content" style="    --tw-bg-opacity: 1;
+        background-color: rgba(243, 244, 246, var(--tw-bg-opacity));">
+        <div class="modal-body ">
+
+
+            <div class="px-4 py-5">
+
+                <div *ngIf="course">
+                    <div class="card" style="background-color: rgba(243, 244, 246, var(--tw-bg-opacity)); border: 0px;">
+                        <h5>Your Order</h5>
+                        <div class="row" style="justify-content: space-around;">
+                            <div class="col-md-5">
+                                <img [src]="course.courseImage" alt="img"
+                                    style=" height: 60%; width: 100%; padding-bottom: 1rem;" />
+                                <div class="d-flex" style=" flex-direction: column; gap: 10px; align-items: center;"> <button class="success_btn" [routerLink]="['/my-orders']">My Orders</button> <button class="success_btn" [routerLink]="['/home']">Home</button></div>
+
+
+                            </div>
+                            <div class="col-md-7">
+                                <p style="color: #111827; font-weight: 500; font-size: 18px;">
+                                    {{ course.courseTitle }}</p>
+
+                                <div class="row" style="justify-content: space-around;">
+                                    <div class="col-md-9">
+                                        Course Price:
+                                    </div>
+                                    <div class="col-md-3" style="justify-content: end; display: flex;">
+                                        ${{ course.coursePrice }}
+                                    </div>
+                                </div>
+                               
+                                <div class="row" style="justify-content: space-around; padding-top: 10px;">
+                                    <div class="col-md-12" style="color: #111827; font-weight: 500;">
+                                        courseDescription:
+                                    </div>
+                                   
+                                </div>
+                                <div class="row" style="justify-content: space-around; padding-top: 10px;">
+                                    <div class="col-md-12" style="color: #111827; font-weight: 500;">
+                                        
+                                        {{ course.courseDescription.length > 80 ? (course.courseDescription | slice:0:80) + '...' : course.courseDescription }}
+                                    </div>
+                                   
+                                </div>
+
+                               
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="row" style="justify-content: space-around; padding-top: 20px;">
+                            <div class="col-md-4">
+                                Discount:
+                            </div>
+                            <div class="col-md-8" style="justify-content: end; display: flex;">
+                                0.00 USD
+                            </div>
+                        </div>
+                        <div class="row" style="justify-content: space-around; padding-top: 10px;">
+                            <div class="col-md-4">
+                                Sub Total:
+                            </div>
+                            <div class="col-md-8" style="justify-content: end; display: flex;">
+                                ${{ course.coursePrice }}
+                            </div>
+                        </div>
+                        <div class="row" style="justify-content: space-around; padding-top: 10px;">
+                            <div class="col-md-4" style="color: #111827; font-weight: 500;">
+                                Total:
+                            </div>
+                            <div class="col-md-8"
+                                style="justify-content: end; display: flex; color: #111827; font-weight: 500;">
+                                ${{ course.coursePrice }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

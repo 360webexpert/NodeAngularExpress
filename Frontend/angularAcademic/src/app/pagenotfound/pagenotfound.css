@@ -1,0 +1,7 @@
+#navbar-main{
+display: none !important;
+}
+
+.headroom--pinned{
+background-color: red;
+}

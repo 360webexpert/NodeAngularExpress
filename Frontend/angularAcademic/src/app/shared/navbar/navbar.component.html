@@ -1,0 +1,97 @@
+<nav id="navbar-main"
+  class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
+  <div class="container" >
+    <a class="navbar-brand mr-lg-5" [routerLink]="['/home']">
+      <img src="./assets/img/brand/argon-white.png">
+    </a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar_global" [ngbCollapse]="isCollapsed">
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a [routerLink]="['/home']">
+              <img src="./assets/img/brand/blue.png">
+            </a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+          <li class="nav-item dropdown">
+            <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+              <i class="ni ni-ui-04 d-lg-none"></i>
+              <span [routerLink]="['/home']" class="nav-link-inner--text">Home</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="!shouldShowAuthLinks()">
+            <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Dashboard</span>
+            </a>
+            <div class="dropdown-menu">
+              <a [routerLink]="['/user-profile']" class="dropdown-item">My Profile</a>
+              <a [routerLink]="['/my-course']" class="dropdown-item">My Course</a>
+              <a [routerLink]="['/my-orders']" class="dropdown-item">My orders</a>
+
+              <!-- <a [routerLink]="['/register']" class="dropdown-item">Register</a> -->
+
+              <!-- <a [routerLink]="['/assignedcourse ']" class="dropdown-item">Assigned Course</a> -->
+            </div>
+          </li>
+          <!-- <li class="nav-item dropdown" *ngIf="!shouldShowAuthLinks()">
+            <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+              <i class="ni ni-ui-04 d-lg-none"></i>
+              <span class="nav-link-inner--text">Logout</span>
+            </a>
+          </li> -->
+          <li class="nav-item dropdown" *ngIf="!shouldShowAuthLinks()">
+            <a class="nav-link no-caret" data-toggle="dropdown" role="button" (click)="logout()">
+              <i class="ni ni-ui-04 d-lg-none"></i>
+              Logout
+            </a>
+          </li>
+          <!-- <li class="nav-item" *ngIf="shouldShowAuthLinks()">
+            <a class="nav-link" (click)="logout()">Logout</a>
+        </li> -->
+        </ul>
+        <!-- <li class="nav-item d-none d-lg-block ml-lg-4">
+          <a href="https://www.creative-tim.com/product/argon-design-system-angular?ref=adsa-navbar" target="_blank" class="btn btn-neutral btn-icon">
+            <span class="nav-link-inner--text">Download</span>
+          </a>
+        </li> -->
+        <li class="nav-item dropdown" *ngIf="shouldShowAuthLinks()">
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span [routerLink]="['/login']" class="nav-link-inner--text">Login</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="shouldShowAuthLinks()">
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span [routerLink]="['/register']" class="nav-link-inner--text">Register</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+  // Check if the current page is the home page
+  if (window.location.pathname === '/') {
+    // If on the home page, add the transparent background class
+    $('.navbar').addClass('navbar-transparent');
+  } else {
+    // If on any other page, add the black background class
+    $('.navbar').addClass('navbar-dark bg-dark');
+  }
+</script>

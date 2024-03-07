@@ -1,0 +1,98 @@
+<!-- 
+<div *ngIf="!showAllCourses" class="container course_container">
+  <div class="header-container">
+    <h1 class="display-3 text-black">Latest Course's</h1>
+  </div>
+  <a [routerLink]="['/all-course']"  class="button-container" *ngIf="courses.length > 2 " >
+    <span class="content-btn">View All</span>
+  </a>
+</div>
+
+<section class="section section-shaped" *ngIf="showAllCourses" style="padding-top: 2rem;
+padding-bottom: 3rem;">
+    <div class="shape shape-style-1 bg-gradient-default">
+    </div>
+</section>
+
+
+<div class="container course_container" [style.margin-top]="showAllCourses ? '4rem' : '0'">
+  <div class="course_digit d-flex justify-content-center flex-wrap ">
+    <div class="row" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+        <div class="card" *ngFor="let course of (showAllCourses ? courses : courses.slice(0, 3))" style="width: 20rem; margin-bottom: 20px;">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2020/09/07/00/39/virtual-learning-5550480_1280.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ course.courseTitle }}</h5>
+            <p class="card-text">{{ course.courseDescription }}</p>
+            <a [routerLink]="['/course-details', course.id]" class="btn">Start Learning</a>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+
+
+
+ -->
+
+ <!-- Conditionally render the header and "View All" button based on the route -->
+<div *ngIf="!showAllCourses" class="container course_container d-flex">
+  <div class="header-container">
+    <h1 class="display-3 text-black">Latest Course's</h1>
+  </div>
+  <a [routerLink]="['/all-course']"  class="button-container" *ngIf="courses.length > 2 " >
+    <span class="content-btn">View All</span>
+  </a>
+
+</div>
+
+<section class="section section-shaped" *ngIf="showAllCourses" style="padding-top: 2rem;
+padding-bottom: 3rem;">
+    <div class="shape shape-style-1 bg-gradient-default">
+    </div>
+</section>
+<!-- Display the course cards -->
+<!-- <div class="course_digit d-flex justify-content-center flex-wrap">
+  <div class="row">
+    <div class="card" *ngFor="let course of (showAllCourses ? courses : courses.slice(0, 3))" style="width: 20rem; margin-bottom: 20px; margin-right: 1rem; height: 91%;">
+      <img class="card-img-top" src="https://cdn.pixabay.com/photo/2020/09/07/00/39/virtual-learning-5550480_1280.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ course.courseTitle }}</h5>
+        <p class="card-text">{{ course.courseDescription }}</p>
+    
+        <a [routerLink]="['/course-details', course.id]" class="btn">Start Learning</a>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container course_container" [style.margin-top]="showAllCourses ? '4rem' : '0'">
+  <div class="course_digit d-flex justify-content-center flex-wrap ">
+    <div *ngIf="courses?.length == 0" class="d-flex justify-content-center">
+      <!-- Show default image when no data is available -->
+      <img src="https://img.freepik.com/premium-vector/no-data-concept-illustration_86047-488.jpg" alt="No Data Image" style="
+        
+        width: 50%;
+    ">
+ 
+    </div>
+    <div class="row" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+      <div class="card" *ngFor="let course of (showAllCourses ? courses : courses.slice(0, 4))" style="width: 20rem; margin-bottom: 20px;">
+          <img class="card-img-top" [src]="course.courseImage" alt="Card image cap" style="height: 200px; object-fit: cover;">
+          <div class="card-body" >
+              <h5 class="card-title" style="height: 40px; overflow: hidden;">{{ course.courseTitle.length > 22 ? (course.courseTitle | slice:0:22) + '...' :course.courseTitle }}</h5>
+              <p class="card-text" style="height: 120px; overflow: hidden;">{{ course.courseDescription.length > 120 ? (course.courseDescription | slice:0:120) + '...' : course.courseDescription }}</p>
+              <a [routerLink]="['/course-details', course.id]" class="btn">Start Learning</a>
+          </div>
+      </div>
+  </div>
+  
+  </div>
+
+
+
+
+
+
+

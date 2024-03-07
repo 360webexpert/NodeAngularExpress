@@ -1,0 +1,40 @@
+.startlearning {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.video-wrapper {
+    width: 80%; /* Adjust the width of the video container */
+    /* border: 1px solid #ccc;  */
+}
+
+.content {
+     /* Adjust the width of the content container */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+.video_blogs {
+    position: relative;
+    padding-bottom: 56.25%; /* Assuming a 16:9 aspect ratio for the video */
+    height: 0;
+}
+
+.video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+}
+
+.video-wrapper iframe {
+    width: 90%;
+    height: 90%;
+}

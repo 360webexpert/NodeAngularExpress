@@ -1,0 +1,48 @@
+.card{
+    display: flex;
+    --container-widget-width: 100%;
+    --container-widget-height: initial;
+    --container-widget-flex-grow: 0;
+    --container-widget-align-self: initial;
+    --background-transition: 0.3s;
+    border-width: 1px 1px 1px 1px;
+    border-color: #87868636;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0px 2px 22px 0px rgba(30.599999999999998, 30.599999999999998, 30.599999999999998, 0.15);
+    padding-block-start: 0px;
+    padding-block-end: 20px;
+    padding-inline-start: 0px;
+    padding-inline-end: 0px;
+    }
+    .btn{
+        border-style: solid;
+        border-width: 1px 1px 1px 1px;
+        border-color: #87868636;
+        padding: 10px 0px 10px 0px;
+        width: 100%;
+    }
+    /* .course_digit{
+        padding-bottom: 4rem;
+    } */
+    .button-container{
+        justify-content: end;
+    }
+    .container.course_container{
+        display: flex;
+        justify-content: space-between;
+      }
+      .content-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        border-radius: 5px;
+        position: relative;
+      }
+      /* Add a pseudo-element for the arrow */
+      .content-btn::after {
+        content: '\2192'; /* Unicode character for right arrow */
+        margin-left: 10px;
+        cursor: pointer;
+      }

@@ -1,0 +1,167 @@
+<section class="section section-shaped" style="    padding-top: 2rem;
+padding-bottom: 3rem;">
+    <div class="shape shape-style-1 bg-gradient-default">
+
+    </div>
+</section>
+
+
+
+<div>
+ 
+    <div class="site-section">
+        <div class="container-fluid" style="background-color: #f0f0f0; padding: 20px; height: 300px;">
+            <div class="container" *ngIf="course">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1 style="    color: black;
+                        font-size: 30px;
+                   
+                        width: 100%;
+                        padding-top: 50px;">{{course.courseTitle}}</h1>
+                        <p class="card-text" style="color: black; font-size: 16px; font-weight: 300; ">{{ course.courseDescription.length > 100 ? (course.courseDescription | slice:0:100) + '...' : course.courseDescription }}</p>
+                    </div>
+                    <div class="col-md-5">
+                        <div style="display: flex;  margin-bottom: -15rem; padding: 25px;">
+                            <div class="card"
+                                style="width: 20rem; margin-bottom: 20px; margin-right: 1rem; height: auto;     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;">
+                                <div style="position: relative;">
+
+                                    <!-- Image with reduced opacity -->
+                                    <img class="card-img-top" [src]="course.courseImage" alt="Card image cap" style="width: 100%; height: auto; opacity: 0.6;">
+                                  
+                                    <!-- Play Icon with customized opacity -->
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); cursor: pointer;" (click)="openModal()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" fill="currentColor">
+                                          <path d="M3 3h18v18H3z" fill="none" />
+                                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15V7l9 5-9 5z" fill="white" />
+                                        </svg>
+                                      </div>
+                                      
+
+                                  
+                                  </div>
+                                  
+                                  
+                                <div class="card-body">
+                                    <p style="font-weight: 600;">${{course.coursePrice}}
+                                    </p>
+                                    <h5 class="card-title">{{course.courseTitle}}</h5>
+                                    <p class="card-text">{{ course.courseDescription.length > 100 ? (course.courseDescription | slice:0:100) + '...' : course.courseDescription }}</p>
+                                    
+                                    <button *ngIf="!isUserLoggedIn()" class="btn btn-primary"
+                                        (click)="redirectToLogin()" style="width: 100%;">Login to Buy</button>
+                                        <button *ngIf="isUserLoggedIn() && !isCoursePurchased()" class="btn btn-primary" (click)="redirectToCheckout()" style="width: 100%;">Buy this Course</button>
+                                       
+                                    <!-- <p class="card-text" style="padding-top: 2rem;">This is a description of the course. You can provide information about the course content, duration, etc.</p> -->
+                                    <div > 
+
+                           
+                                        <button *ngIf="isUserLoggedIn() && isCoursePurchased()" class="btn btn-primary" (click)="redirectToPurchasedCourses()" style="width: 100%;">View purchased courses</button>
+                                     
+                                        <button *ngIf="isUserLoggedIn()" class="btn btn-primary" (click)="openShareModal()" style="width: 100%; margin-top:1rem;" >Share</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <!-- Add more cards if needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- <div style="display: flex;
+        flex-direction: row-reverse;
+        margin-top: -15rem;
+        padding: 25px;">
+            <div class="card" style="width: 20rem; margin-bottom: 20px; margin-right: 1rem; height: 91%; ">
+                <img class="card-img-top" src="assets/img/course/upskilljpg-09.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">The Complete Digital Marketing Course</h5>
+                    <p class="card-text">This is a description of the course. You can provide information about the course content, duration, etc.</p>
+                    <a href="#" class="btn">Start Learning</a>
+                </div>
+            </div>
+        </div> -->
+
+
+    <div class="container" style="padding: 30px;">
+
+
+
+        <div class="card"
+            style="width: 35rem; margin-bottom: 20px; margin-right: 1rem; height: 91%; background-color: #f9f9fb;">
+
+            <div class="card-body">
+                <h5 class="card-title">What I will learn?</h5>
+                <ul>
+                    <li>Create a fully-animated and transition-filled presentation</li>
+                    <li>Minimize text quantity on presentations by using graphs</li>
+                    <li>Rapidly improve your workflow and design skills</li>
+                    <li>Learn PowerPoint from beginner to an advanced level</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <h5 class="card-title">About Course</h5>
+            <p style="width: 600px;"> Lorem ipsum dolor sit amet consectetur adipiscing elit libero mattis, justo proin
+                pretium eu facilisis facilisi fermentum nisi imperdiet, dui purus molestie quam porttitor malesuada
+                nullam nisl. Himenaeos dictum condimentum nisl neque vel, molestie scelerisque ante blandit luctus,
+                imperdiet duis sed donec.</p>
+        </div>
+
+        <div>
+            <h5 class="card-title">Requirements</h5>
+            <ul>
+                <li>Access to a computer with an internet connection.</li>
+
+            </ul>
+            <!-- <p style="width: 600px;"> Lorem ipsum dolor sit amet consectetur adipiscing elit libero mattis, justo proin pretium eu facilisis facilisi fermentum nisi imperdiet, dui purus molestie quam porttitor malesuada nullam nisl. Himenaeos dictum condimentum nisl neque vel, molestie scelerisque ante blandit luctus, imperdiet duis sed donec.</p> -->
+        </div>
+
+        <div>
+            <h5 class="card-title">Description</h5>
+            <p style="width: 600px;">{{course.courseDescription}}</p>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+<div  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+<!-- <router-outlet></router-outlet> -->
+
+
+
+
