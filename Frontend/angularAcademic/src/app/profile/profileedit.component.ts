@@ -215,17 +215,19 @@ export class ProfileEditComponent implements OnInit {
             switchMap((userData) => {
                 this.apiService.getalluniversities().subscribe((universities: University[]) => {
                     this.universities = universities;
-                    console.log('universities', this.universities);
+                    // console.log('universities', this.universities);
                   });
                 this.userId = userData.id;
 
-                const countryIsoCode = userData.country;
-                const stateIsoCode = userData.state;
+             
 
                 // Populate countries, states, and cities
                 this.countries = Country.getAllCountries();
+                const countryIsoCode = this.countries.find(c => c.name === userData.country).isoCode
                 this.states = State.getStatesOfCountry(countryIsoCode);
+                const stateIsoCode =  this.states.find(s => s.name === userData.state).isoCode;
                 this.cities = City.getCitiesOfState(countryIsoCode, stateIsoCode);
+
 
                 // Initialize the form after populating countries, states, and cities
                 this.profileForm = this.formBuilder.group({
@@ -235,18 +237,18 @@ export class ProfileEditComponent implements OnInit {
                     email: [{ value: userData.email, disabled: true }, [Validators.required, Validators.email]],
                     password: [{ value: userData.password, disabled: true }, [Validators.required, Validators.minLength(6)]],
                     phoneNumber: [userData.phoneNumber, Validators.required],
-                    addressLane1: [userData.addressLane1, Validators.required],
+                    addressLane1: [userData.addressLane1],
                     addressLane2: [userData.addressLane2],
-                    country: [userData.country, Validators.required],
-                    state: [userData.state, Validators.required],
-                    city: [userData.city, Validators.required],
-                    zipCode: [userData.zipCode, Validators.required],
-                    interestedInInternship: [userData.interestedInInternship, Validators.required],
-                    universityName: [userData.universityName, Validators.required],
+                    country: [userData.country],
+                    state: [userData.state],
+                    city: [userData.city],
+                    zipCode: [userData.zipCode],
+                    interestedInInternship: [userData.interestedInInternship],
+                    universityName: [userData.universityName],
                     otherUniversityName: [userData.otherUniversityName],
-                    currentProgram: [userData.currentProgram, Validators.required],
-                    graduatingYear: [userData.graduatingYear, [Validators.required]],
-                    alreadyGraduated: [userData.alreadyGraduated.toString(), Validators.required],
+                    currentProgram: [userData.currentProgram],
+                    graduatingYear: [userData.graduatingYear],
+                    alreadyGraduated: [userData.alreadyGraduated.toString()],
                     schoolEmail: [userData.schoolEmail],
                     userId: [this.userId],
                 });
@@ -265,7 +267,9 @@ export class ProfileEditComponent implements OnInit {
 
     // Event handler for country change
     onCountryChange() {
-        const countryIsoCode = this.profileForm.value.country;
+      
+        const countryIsoCode = this.countries.find(c => c.name === this.profileForm.value.country).isoCode
+    //    console.log( this.countries.find(c => c.name === this.profileForm.value.country).isoCode,'jjjjjjjjjjjjjjj') 
         this.states = State.getStatesOfCountry(countryIsoCode);
         this.profileForm.patchValue({ state: '' }); // Reset state and city when country changes
         this.cities = [];
@@ -273,8 +277,8 @@ export class ProfileEditComponent implements OnInit {
 
     // Event handler for state change
     onStateChange() {
-        const countryIsoCode = this.profileForm.value.country;
-        const stateIsoCode = this.profileForm.value.state;
+        const countryIsoCode = this.countries.find(c => c.name === this.profileForm.value.country).isoCode
+        const stateIsoCode =  this.states.find(s => s.name === this.profileForm.value.state).isoCode;
         this.cities = City.getCitiesOfState(countryIsoCode, stateIsoCode);
         this.profileForm.patchValue({ city: '' }); // Reset city when state changes
     }

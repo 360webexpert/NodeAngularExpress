@@ -128,7 +128,7 @@
                         <select class="form-control" formControlName="country" (focus)="focus8=true"
                           (blur)="focus8=false" (change)="onCountryChange()">
                           <option value="" disabled>Select Country</option>
-                          <option *ngFor="let country of countries" [value]="country.isoCode">{{ country.name }}
+                          <option *ngFor="let country of countries" [value]="country.name">{{ country.name }}
                           </option>
                         </select>
                       </div>
@@ -146,7 +146,7 @@
                         <select class="form-control" formControlName="state" (focus)="focus9=true" (blur)="focus9=false"
                           (change)="onStateChange()">
                           <option value="" disabled>Select State</option>
-                          <option *ngFor="let state of states" [value]="state.isoCode">{{ state.name }}</option>
+                          <option *ngFor="let state of states" [value]="state.name">{{ state.name }}</option>
                         </select>
                       </div>
                       <div *ngIf="signupForm.get('state').hasError('required') && signupForm.get('state').touched"

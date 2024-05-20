@@ -12,7 +12,7 @@ const fs = require('fs');
 const { sendVerificationEmail, sendResetPasswordEmail, sendReferralEmail } = require('../email/emailService');
 const authenticateToken = require("./authController");
 const { TOKEN_SECRET, STRIPE_SECRET_KEY } = require("../../config");
-
+const csv = require('csv-parser'); 
 const firebase = require('firebase/app');
 const { initializeApp } = require('firebase/app');
 const { getAuth, createUserWithEmailAndPassword } = require('firebase/auth');
@@ -82,7 +82,7 @@ exports.create = async (req, res) => {
       otherUniversityName: req.body.otherUniversityName,
       currentProgram: req.body.currentProgram,
       graduatingYear: req.body.graduatingYear,
-      alreadyGraduated: req.body.alreadyGraduated,
+      alreadyGraduated: req.body.alreadyGraduated||false,
       schoolEmail: req.body.schoolEmail,
       verificationToken,
       isVerified: false,
@@ -96,6 +96,8 @@ exports.create = async (req, res) => {
 
     res.status(200).send({ status: 200, data: firebaseUserCredential.user });
   } catch (err) {
+
+    console.log(err,'jfkfskfhdkfh')
     if (err.message.includes('auth/email-already-in-use')) {
       console.log('err.message', err.message)
       res.status(500).send({

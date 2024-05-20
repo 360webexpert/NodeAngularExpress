@@ -57,28 +57,28 @@ export class SignupComponent implements OnInit {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      phoneNumber: ['', Validators.required],
-      addressLane1: ['', Validators.required],
-      addressLane2: [''],
-      country: ['', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required],
-      zipCode: ['', Validators.required],
-      interestedInInternship: ['', Validators.required],
+      phoneNumber: '',
+      addressLane1:'',
+      addressLane2: '',
+      country: '',
+      state:'',
+      city: '',
+      zipCode:'',
+      interestedInInternship: '',
       // interestedInInternship: this.formBuilder.control(null),
 
-      universityName: ['', Validators.required],
+      universityName: '',
       otherUniversityName: [''],
-      currentProgram: ['', Validators.required],
+      currentProgram: '',
       // currentProgram: this.formBuilder.control(null),
-      graduatingYear: ['', [Validators.required]],
-      alreadyGraduated: ['', Validators.required],
-      schoolEmail: [''],
+      graduatingYear:'',
+      alreadyGraduated:'',
+      schoolEmail:'',
     });
     this.countries = Country.getAllCountries();
   }
   onCountryChange() {
-    const countryIsoCode = this.signupForm.value.country;
+    const countryIsoCode = this.countries.find(c => c.name === this.signupForm.value.country).isoCode
     this.states = State.getStatesOfCountry(countryIsoCode);
     this.signupForm.patchValue({ state: '' }); // Reset state and city when country changes
     this.cities = [];
@@ -86,8 +86,9 @@ export class SignupComponent implements OnInit {
 
   // Event handler for state change
   onStateChange() {
-    const countryIsoCode = this.signupForm.value.country; 
-    const stateIsoCode = this.signupForm.value.state;
+    // const countryIsoCode = this.signupForm.value.country; 
+    const countryIsoCode = this.countries.find(c => c.name === this.signupForm.value.country).isoCode
+    const stateIsoCode =this.states.find(c => c.name === this.signupForm.value.state).isoCode
     this.cities = City.getCitiesOfState(countryIsoCode, stateIsoCode);
     this.signupForm.patchValue({ city: '' }); // Reset city when state changes
   }
@@ -95,7 +96,7 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.apiService.getalluniversities().subscribe((universities: University[]) => {
       this.universities = universities;
-      console.log(this.universities,"jjjjjjjjj")
+      // console.log(this.universities,"jjjjjjjjj")
     });
   }
   onSubmit() {
